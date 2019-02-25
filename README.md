@@ -1,6 +1,6 @@
 # Localización de Viviviendas en imagen satélite
 
-Proyecto de la asignatura Aplicaciones industriales y comerciales del máster de visión artificial.
+Proyecto de la asignatura Aplicaciones industriales y comerciales del [Máster de Visión Artificial](https://mastervisionartificial.es/).
 
 Este proyecto consiste en desarrollar una aplicación web que localice casas en imágenes de satélite dadas por un usuario.
 
@@ -8,7 +8,6 @@ Este proyecto consiste en desarrollar una aplicación web que localice casas en 
 
 ## Desarrollado por:
 
-Francisco Perez Salgado
-
-Aitor Martínez Fernádez
+* Francisco Perez Salgado
+* Aitor Martínez Fernádez
 
