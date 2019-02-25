@@ -375,6 +375,30 @@ El siguiente diagrama de actividad muestra el caso de uso en una ejecución típ
 
 <img src="img/respaldo_bbdd.svg" width="300"/>
 
+## 4. Planificiación
 
+| Tarea                                                          | Duración (Días) |
+|----------------------------------------------------------------|:---------------:|
+| Creacion de un servidor Django                                 |        1        |
+| Página para poder modifcar los datos propios                   |        2        |
+| Formulario para subir las imágenes                             |        2        |
+| Página de login                                                |        2        |
+| Lógica para recibir la imagen                                  |        1        |
+| Diseño de la base de datos                                     |        1        |
+| Post procesado de imagen                                       |        1        |
+| Preprocesado de Imagen                                         |        1        |
+| Modificar admin de Django                                      |        2        |
+| Creación de tests unitarios para aplicación principal          |        1        |
+| Crear manual de usuario para el administrador                  |        1        |
+| Implementación de los métodos necesarios para el uso de la red |        3        |
+| Probar red U-net para segmentado                               |        1        |
+
+## 5. Enlace al repositiorio
 
 Enlace al repositorio GitHub: https://github.com/fqez/AIVA-segmentacion-satelite.git
+
+## Desarrolladores:
+
+* Francisco Perez Salgado
+* Aitor Martínez Fernádez
+
