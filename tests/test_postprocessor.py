@@ -29,12 +29,12 @@ class TestPostprocessor (unittest.TestCase):
         img = cv2.imread("tests/data/austin35_1024_bw.tif", cv2.IMREAD_GRAYSCALE)
 
         houses = self.proc._find_houses(img)
-        houses_save = np.load("tests/data/austin35_houses.npy")
+        houses_save = np.load("tests/data/austin35_houses_1024.npy")
         self.assertTrue(np.array_equal(houses, houses_save))
 
     def test_rescalate_houses_dims(self):
 
-        houses_1024 = np.load("tests/data/austin35_houses.npy")
+        houses_1024 = np.load("tests/data/austin35_houses_1024.npy")
 
         houses = self.proc._rescalate_houses_dims(houses_1024, 1024./1500.)
         houses_1500 = np.load("tests/data/austin35_houses_1500.npy")
@@ -65,8 +65,6 @@ class TestPostprocessor (unittest.TestCase):
 
         img_mark =  self.proc.mark_houses(img, houses_1500)
 
-
-        cv2.imwrite("tests/data/austin35_1500_marks.tif", img_mark)
 
         img2 = cv2.imread("tests/data/austin35_1500_marks.tif")
 

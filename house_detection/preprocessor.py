@@ -49,16 +49,16 @@ class Preprocessor:
         return array_img
 
     def _rgb2gray(self, img):
-        """convert RGB images to gray scale
+        """convert BGR images to gray scale
         
         Arguments:
-            img {opencv img} -- RGB image to convert
+            img {opencv img} -- BGR image to convert
         
         Returns:
             opencv img --  grayscale image 
         """
         if len(img.shape) > 2:
-            return cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+            return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         return img
 
     def _resize_img(self, img):

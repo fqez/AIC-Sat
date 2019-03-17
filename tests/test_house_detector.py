@@ -14,8 +14,8 @@ class Testhouse_detector (unittest.TestCase):
 
     def test_detect(self):
         img = cv2.imread("tests/data/austin35_1500.tif")
-        rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        res = self.dect.detect([rgb_img])
+        #rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        res = self.dect.detect([img])
 
         res_0 = res[0]
 
@@ -23,11 +23,10 @@ class Testhouse_detector (unittest.TestCase):
 
         img_marks = cv2.imread("tests/data/austin35_1500_marks.tif")
 
-        print (res_0[0], len(houses_1500))
-
         self.assertTrue(np.array_equal(img_marks, res_0[2]))
         self.assertTrue(np.array_equal(houses_1500, res_0[1]))
         self.assertTrue(np.array_equal(len(houses_1500), res_0[0]))
+        self.assertTrue(abs(len(houses_1500)-res_0[0]) < len(houses_1500)*0.1)
 
 
 if __name__ == '__main__':
