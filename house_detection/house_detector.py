@@ -19,7 +19,6 @@ class House_detector():
             f, imgs = self._pre.process(i)
             det = self._net.predict(imgs)
             houses = self._post.process(det, f)
-            print(len(houses))
             img = self._post.mark_houses(i, houses)
 
             detections.append((len(houses), houses, img))
