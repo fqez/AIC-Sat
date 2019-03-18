@@ -8,7 +8,7 @@ Este proyecto consiste en desarrollar una aplicación web que localice casas en 
 
 Para ejecutar el sistema es necesario disponer de un equipo con CPU relativamente moderna que soporte el conjunto de instrucciones de TensorFlow.
 
-Además el sistema funciona bajo sistemas Linux, con distribución Ubuntu 18.04 LTS.
+Además el sistema funciona bajo sistemas Linux, con distribución recomendada Ubuntu 18.04 LTS.
 
 ## Puesta en marcha
 
