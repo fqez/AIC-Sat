@@ -116,7 +116,7 @@ class Postprocessor():
         img_cp = img.copy()
 
         for x,y,h,w in houses:
-            cv2.rectangle(img_cp,(x,y),(x+w,y+h),(0,0,255),1)
+            cv2.rectangle(img_cp,(x,y),(x+w,y+h),(0,255,0),1)
 
         return img_cp
 
