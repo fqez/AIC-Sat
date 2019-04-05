@@ -49,11 +49,14 @@ cd AIVASat
 
 #### Instalar dependencias
 
-Para instalar la dependencias ejecuta el siguiente comando.
+Para instalar la dependencias ejecuta los siguientes comandos.
 
 ```
 pip install -r requirements.txt
+sudo apt install python3-tk
 ```
+
+
 
 #### Descargar modelo
 
