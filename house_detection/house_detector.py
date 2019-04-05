@@ -18,15 +18,11 @@ class House_detector():
 
     """
 
-    def __init__(self, network):
+    def __init__(self):
         """inicialize house detector
-        
-        Parameters
-        ----------
-        network : str  
-            path to network file
-        
+                
         """
+        network = "model/aerial_model.h5"
 
         self._pre = Preprocessor()
         self._post = Postprocessor()
