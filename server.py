@@ -38,11 +38,11 @@ def b64_to_img(b64):
         -------
         opencv image (numpy array)
         """
-    base64_file = b64.partition(",")[-1]
-    print(base64_file[:50])
-    #while(len(b64)%4 !=0):
-    #    base64_file += "="
-    #print(base64_file[:50])
+    if "," in b64:
+        base64_file = b64.partition(",")[-1]
+    else: 
+        base64_file = b64
+
     jpg_img = base64.b64decode(base64_file)
     return cv2.imdecode(np.frombuffer(jpg_img,dtype=np.int8),1)
 
@@ -73,19 +73,14 @@ def detect():
     if not request.json or not 'images' in request.json:
         abort(400)
 
-    
     b64_images = request.get_json()['images']
-    print("00000")
     images = [b64_to_img(i) for i in b64_images]
-    print("00001")
 
     cv2.imwrite("test.png", images[0])
-    print("00003")
     #print(b64_images[0])
 
     with graph.as_default():
         detections = dect.detect(images)
-        print("1")
         result = []
 
         for d in detections:
@@ -93,7 +88,6 @@ def detect():
             a={"total": d[0], "detections":d[1].tolist(), "image": img_to_b64(d[2])}
             result.append(a)
         
-        print("2")
         return jsonify({'result': result}), 201
 
 @app.route('/')
