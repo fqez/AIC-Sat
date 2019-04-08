@@ -107,6 +107,16 @@ Para conectarse al servidor en http://aiva.jderobot.org/:
 python client.py -i folder -o out.json -s http://aiva.jderobot.org/ -p 80
 ```
 
+### Despliegue
+
+Para desplegar el sistema en un servidor, se ofrece una imagen de docker ya construida con todos los elementos necesarios para el funcionamiento del mismo. Para desplegar el sistema:
+
+```
+docker run -d --name nombre_imagen -p IP:PUERTO:5000 fqez/aiva:latest
+```
+
+Esta instrucción generará el contenedor y lanzará el servicio de forma automática. Para acceder a él únicamente hay que abrir un navegador web y dirigirse a la URL IP:PUERTO especificados a la hora de lanzar el contenedor de docker.
+
 ### Tests
 
 #### Descargar los datos necesarios para los test
