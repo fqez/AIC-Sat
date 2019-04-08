@@ -60,7 +60,11 @@ sudo apt install python3-tk
 
 #### Descargar modelo
 
-Descarga en **model** el modelo de la red de [este link](https://drive.google.com/open?id=1RFjABoLp6UUU4a0ZNF-klZRo_z1lqo5C)
+Descarga en **model** el modelo de la red:
+
+```
+wget https://jderobot.org/store/fperez/uploads/aerial_model.h5
+```
 
 
 
