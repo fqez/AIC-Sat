@@ -62,6 +62,51 @@ sudo apt install python3-tk
 
 Descarga en **model** el modelo de la red de [este link](https://drive.google.com/open?id=1RFjABoLp6UUU4a0ZNF-klZRo_z1lqo5C)
 
+
+
+### Ejecutar
+
+#### Servidor
+```
+python server.py [-h] [-s HOST] [-p PORT] [-d]
+```
+
+* -h, --help            show this help message and exit
+* -s HOST, --host HOST  host (default: 127.0.0.1)
+* -p PORT, --port PORT  port (default: 5000)
+* -d, --debug           Activate debug mode
+
+Para ejecutar en localhost:
+```
+python server.py
+```
+
+Para servir en todas las ips y en el puerto 80:
+```
+python server.py -s 0.0.0.0 -p 80
+```
+
+#### Cliente
+```
+python client.py [-h] -i IN -o OUT [-s SERVER] [-p PORT]
+```
+
+* -h, --help            show this help message and exit
+* -i IN, --in IN        folder with in images
+* -o OUT, --out OUT     output json file
+* -s SERVER, --server SERVER          server's url (default: localhost)
+* PORT, --port PORT  server's port (default: 5000)
+
+Para ejecutar en localhost:
+```
+python client.py -i folder -o out.json
+```
+
+Para conectarse al servidor en http://aiva.jderobot.org/:
+```
+python client.py -i folder -o out.json -s http://aiva.jderobot.org/ -p 80
+```
+
 ### Tests
 
 #### Descargar los datos necesarios para los test

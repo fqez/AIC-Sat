@@ -1,11 +1,11 @@
 
 from flask import Flask, jsonify, request, abort, render_template
 import cv2
-import numpy as np
-import base64
 
 from house_detection.house_detector import House_detector
 import tensorflow as tf
+from image_utils import *
+import argparse
 
 app = Flask(__name__)
 
@@ -26,40 +26,7 @@ API DOCUMENTATION
 
 """
 
-def b64_to_img(b64):
-    """Conversor from base64 to opencv image
-        
-        Parameters
-        ----------
-        b64 : string
-            image in base64
-        
-        Returns
-        -------
-        opencv image (numpy array)
-        """
-    if "," in b64:
-        base64_file = b64.partition(",")[-1]
-    else: 
-        base64_file = b64
 
-    jpg_img = base64.b64decode(base64_file)
-    return cv2.imdecode(np.frombuffer(jpg_img,dtype=np.int8),1)
-
-def img_to_b64 (img):
-    """Conversor from opencv image to base64
-        
-        Parameters
-        ----------
-        img : numpy array
-            opencv image
-        
-        Returns
-        -------
-        image in base64 (string, UTF-8)
-        """
-    png_encoded_img = cv2.imencode('.jpg', img)
-    return base64.b64encode(png_encoded_img[1]).decode('UTF-8')
 
 @app.route('/api/detect', methods=['POST'])
 def detect():
@@ -100,6 +67,28 @@ def index():
         """
     return render_template("index.html", url=request.url)
 
+
+def main(args):
+    """main function
+        
+        Parameters
+        ----------
+        args : dict
+            arguments
+        """
+
+    host = args["host"]
+    port = args["port"]
+    debug = args["debug"]
+
+    app.run(host=host,port=port, debug=debug)
+
 if __name__ == '__main__':
-    
-    app.run(debug=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-s", "--host", required=False, default = "127.0.0.1", help="host (default: 127.0.0.1)")
+    ap.add_argument("-p", "--port", required=False, type=int, default = 5000, help="port (default: 5000)")
+    ap.add_argument("-d", "--debug", required=False, action="store_true", default=False, help="Activate debug mode")
+
+    args = vars(ap.parse_args())
+
+    main(args)
